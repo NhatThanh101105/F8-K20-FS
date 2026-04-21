@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework-Day4</title>
+    <link rel="stylesheet" href="buoi4.css">
+</head>
+<body>
+
+<div class="panel">
+    <header>Trung tâm cấu hình giao diện (Demo)</header>
+
+    <input type="radio" name="theme" id="theme-light" checked hidden>
+    <input type="radio" name="theme" id="theme-dark" hidden>
+
+    <input type="radio" name="color" id="color-red" checked hidden>
+    <input type="radio" name="color" id="color-blue" hidden>
+    <input type="radio" name="color" id="color-green" hidden>
+
+    <input type="radio" name="lang" id="lang-vi" checked hidden>
+    <input type="radio" name="lang" id="lang-en" hidden>
+
+    <input type="checkbox" id="opt-advanced" hidden>
+    <input type="checkbox" id="opt-eco" hidden>
+    <input type="checkbox" id="opt-warning" hidden>
+
+    <div class="control-area">
+        <div class="group">
+            <p class="group-title">Chọn giao diện (Theme):</p>
+            <label for="theme-light" class="btn">Light</label>
+            <label for="theme-dark" class="btn">Dark</label>
+        </div>
+
+        <div class="group">
+            <p class="group-title">Chọn màu chủ đạo (Color):</p>
+            <label for="color-red" class="btn">Red</label>
+            <label for="color-blue" class="btn">Blue</label>
+            <label for="color-green" class="btn">Green</label>
+        </div>
+
+        <div class="group">
+            <p class="group-title">Chọn ngôn ngữ (Language):</p>
+            <label for="lang-vi" class="btn">VI</label>
+            <label for="lang-en" class="btn">EN</label>
+        </div>
+
+        <div class="group">
+            <p class="group-title">Tùy chọn bổ sung (Options - Checkbox):</p>
+            <label for="opt-advanced" class="btn">Hiển thị mô tả nâng cao</label>
+            <label for="opt-eco" class="btn">Bật chế độ Eco</label>
+            <label for="opt-warning" class="btn">Hiển thị cảnh báo quan trọng</label>
+        </div>
+    </div>
+
+    <div class="result-area">
+        <div class="line res-light">Theme Light: Giao diện sáng, chữ đen.</div>
+        <div class="line res-dark">Theme Dark: Giao diện tối, chữ sáng.</div>
+
+        <div class="line res-red">Màu Red: được nhấn mạnh khi chọn Red.</div>
+        <div class="line res-blue">Màu Blue: được nhấn mạnh khi chọn Blue.</div>
+        <div class="line res-green">Màu Green: được nhấn mạnh khi chọn Green.</div>
+
+        <div class="line res-vi">[VI] Xin chào bạn! Khi chọn VI, dòng này rõ hơn.</div>
+        <div class="line res-en">[EN] Hello, world! Khi chọn EN, dòng này rõ hơn.</div>
+
+        <div class="line res-advanced">Mô tả nâng cao: giải thích kỹ hơn về cách các lựa chọn đang ảnh hưởng giao diện.</div>
+        <div class="line res-eco">Chế độ Eco: mô phỏng trạng thái tiết kiệm tài nguyên cho giao diện.</div>
+        <div class="line res-warning">Cảnh báo quan trọng: khu vực dùng để nhấn mạnh thông tin hệ thống.</div>
+    </div>
+</div>
+
+</body>
+</html>
