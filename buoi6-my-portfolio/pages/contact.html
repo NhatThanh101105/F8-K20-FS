@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ</title>
+    <!-- Material Design Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
+    <!-- Liên kết CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body id="top">
+
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html"><i class="mdi mdi-home"></i> Home</a></li>
+                <li><a href="about.html"><i class="mdi mdi-account"></i> About</a></li>
+                <li><a href="skills.html"><i class="mdi mdi-lightbulb"></i> Skills</a></li>
+                <li><a href="projects.html"><i class="mdi mdi-folder"></i> Projects</a></li>
+                <li><a href="blog.html"><i class="mdi mdi-note-text"></i> Blog</a></li>
+                <li><a href="contact.html"><i class="mdi mdi-email"></i> Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Liên hệ với tôi</h1>
+
+        <!-- FORM LIÊN HỆ -->
+        <section>
+            <form action="#" method="POST">
+                <fieldset>
+                    <legend>Thông tin liên hệ</legend>
+
+                    <label for="name">Họ tên:</label><br>
+                    <input type="text" id="name" name="name" required minlength="2"><br><br>
+
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" required><br><br>
+
+                    <label for="phone">Số điện thoại:</label><br>
+                    <input type="tel" id="phone" name="phone" pattern="[0-9]{10,11}"><br><br>
+
+                    <label for="subject">Chủ đề:</label><br>
+                    <select id="subject" name="subject">
+                        <option value="">-- Chọn chủ đề --</option>
+                        <option value="project">Hỏi về dự án</option>
+                        <option value="coop">Hợp tác</option>
+                        <option value="hiring">Tuyển dụng</option>
+                        <option value="other">Khác</option>
+                    </select><br><br>
+
+                    <label>Mức độ ưu tiên:</label><br>
+                    <input type="radio" id="low" name="priority" value="low">
+                    <label for="low">Thấp</label>
+                    <input type="radio" id="medium" name="priority" value="medium" checked>
+                    <label for="medium">Trung bình</label>
+                    <input type="radio" id="high" name="priority" value="high">
+                    <label for="high">Cao</label><br><br>
+
+                    <label>Dịch vụ quan tâm:</label><br>
+                    <input type="checkbox" id="web" name="service" value="web">
+                    <label for="web">Web Development</label><br>
+                    <input type="checkbox" id="mobile" name="service" value="mobile">
+                    <label for="mobile">Mobile App</label><br>
+                    <input type="checkbox" id="uiux" name="service" value="uiux">
+                    <label for="uiux">UI/UX Design</label><br>
+                    <input type="checkbox" id="consult" name="service" value="consult">
+                    <label for="consult">Consulting</label><br><br>
+
+                    <label for="message">Tin nhắn:</label><br>
+                    <textarea id="message" name="message" rows="6" minlength="10" placeholder="Nhập tin nhắn của bạn..." required></textarea><br><br>
+
+                    <label for="rating">Đánh giá website này: 1-5 sao</label><br>
+                    <input type="range" id="rating" name="rating" min="1" max="5" value="5"><br><br>
+
+                    <label for="file">Đính kèm CV hoặc tài liệu (nếu có):</label><br>
+                    <input type="file" id="file" name="file" accept=".pdf,.doc,.docx"><br><br>
+
+                    <input type="checkbox" id="agree" name="agree" required>
+                    <label for="agree">Tôi đồng ý với Chính sách bảo mật</label><br><br>
+
+                    <button type="submit">Gửi tin nhắn</button>
+                    <button type="reset">Xóa form</button>
+                </fieldset>
+            </form>
+        </section>
+
+        <!-- THÔNG TIN LIÊN HỆ -->
+        <section>
+            <address>
+                <p>Email: <a href="mailto:admin@f8.edu.vn">admin@f8.edu.vn</a></p>
+                <p>Điện thoại: <a href="tel:+84123456789">+84 123 456 789</a></p>
+                <p>Địa chỉ: Số 123, Đường A, Hà Nội</p>
+            </address>
+
+            <div>
+                <a href="#"><i class="mdi mdi-facebook"></i> Facebook</a> |
+                <a href="#"><i class="mdi mdi-instagram"></i> Instagram</a>
+            </div>
+        </section>
+
+        <!-- BẢN ĐỒ -->
+        <section>
+            <h3>Bản đồ</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.097073722244!2d105.81381!3d21.028667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab424a50fff9%3A0xbe3a7f36750a045a!2zMTIzIMSQxrDhu51uZyBMw6FuZywgTMOhbmcsIMSQ4buRbmcgxJBhLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1715260000000!5m2!1svi!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </section>
+
+        <!-- GIỜ LÀM VIỆC -->
+        <section>
+            <h3>Giờ làm việc</h3>
+            <table border="1">
+                <tr>
+                    <th>Ngày</th>
+                    <th>Giờ</th>
+                </tr>
+                <tr>
+                    <td>Thứ 2 - Thứ 6</td>
+                    <td><time>08:00</time> - <time>18:00</time></td>
+                </tr>
+                <tr>
+                    <td>Thứ 7</td>
+                    <td><time>08:00</time> - <time>12:00</time></td>
+                </tr>
+                <tr>
+                    <td>Chủ nhật</td>
+                    <td>Nghỉ</td>
+                </tr>
+            </table>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Copyright &copy; 2026 Mã Nhật Thanh</p>
+        <a href="#top">Lên đầu trang</a>
+    </footer>
+
+</body>
+</html>
