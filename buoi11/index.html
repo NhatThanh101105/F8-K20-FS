@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Responsive Card Layout</title>
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <input type="checkbox" id="dark-mode-toggle" class="dark-mode__checkbox">
+
+    <input type="checkbox" id="menu-toggle" class="header__checkbox">
+
+    <div class="page">
+
+        <header class="header">
+
+            <div class="header__logo">
+                My Website
+            </div>
+
+            <nav class="header__nav nav">
+
+                <label for="menu-toggle"
+                    class="nav__close-btn mdi mdi-close"></label>
+
+                <ul class="nav__list">
+
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">Link 1</a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">Link 2</a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">Link 3</a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <div class="header__actions">
+
+                <label for="dark-mode-toggle"
+                    class="dark-mode__btn mdi"></label>
+
+                <label for="menu-toggle"
+                    class="header__hamburger mdi mdi-menu"></label>
+
+            </div>
+
+        </header>
+
+        <label for="menu-toggle" class="overlay"></label>
+
+        <main class="container">
+
+            <section class="container__content">
+
+                <h1 class="container__heading">
+                    This is the main heading
+                </h1>
+
+                <p class="container__paragraph">
+                    Veggies es bonus vobis, proinde vos postulo essum magis
+                    kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon
+                    azuki bean garlic.
+                </p>
+
+                <p class="container__paragraph">
+                    Gumbo beet greens corn soko endive gumbo gourd. Parsley
+                    shallot courgette tatsoi pea sprouts fava bean collard
+                    greens dandelion okra wakame tomato.
+                </p>
+
+                <section class="cards">
+
+                    <article class="card">
+
+                        <header class="card__header">
+                            Card One
+                        </header>
+
+                        <div class="card__body">
+                            Turnip greens yarrow ricebean rutabaga endive
+                            cauliflower sea lettuce kohlrabi amaranth water
+                            spinach avocado.
+                        </div>
+
+                    </article>
+
+                    <article class="card">
+
+                        <header class="card__header">
+                            Card Two
+                        </header>
+
+                        <div class="card__body">
+                            Daikon napa cabbage asparagus winter purslane kale.
+                            Celery potato scallion desert raisin horseradish
+                            spinach carrot soko.
+                        </div>
+
+                    </article>
+
+                    <article class="card">
+
+                        <header class="card__header">
+                            Card Three
+                        </header>
+
+                        <div class="card__body">
+                            Lotus root water spinach fennel kombu maize bamboo
+                            shoot green bean swiss chard seakale pumpkin onion
+                            chickpea gram corn pea.
+                        </div>
+
+                    </article>
+
+                    <article class="card">
+
+                        <header class="card__header">
+                            Card Four
+                        </header>
+
+                        <div class="card__body">
+                            Lotus root water spinach fennel kombu maize bamboo
+                            shoot green bean swiss chard seakale pumpkin onion
+                            chickpea gram corn pea.
+                        </div>
+
+                    </article>
+
+                    <article class="card">
+
+                        <header class="card__header">
+                            Card Five
+                        </header>
+
+                        <div class="card__body">
+                            Nori grape silver beet broccoli kombu beet greens
+                            fava bean potato quandong celery. Bunya nuts
+                            black-eyed pea prairie turnip leek lentil turnip
+                            greens parsnip.
+                        </div>
+
+                    </article>
+
+                </section>
+
+            </section>
+
+            <aside class="container__sidebar">
+
+                <p>
+                    Have you discovered all of the other excellent content on
+                    this website?
+                </p>
+
+            </aside>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>

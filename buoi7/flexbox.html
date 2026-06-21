@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [class^="container"] {
+            display: flex;
+            width: 700px;  
+            height: 300px; 
+            border: 2px solid #333;
+            margin-bottom: 30px;
+            background-color: #ffffff;
+            box-sizing: border-box;
+        }
+
+        [class^="container"] > div {
+            width: 60px;
+            height: 60px;
+            background-color: blue;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .container1 { justify-content: space-between; align-items: center; }
+
+        .container2 { flex-direction: row-reverse; justify-content: space-between; align-items: center; }
+
+        .container3 { flex-direction: column; align-items: center; justify-content: start; }
+        .container3 div:nth-child(1) { margin-bottom: 20px; }
+        .container3 div:nth-child(2) { margin-bottom: 97px; }
+
+       
+        .container4 { justify-content: center; align-items: center; }
+        .container4 div:nth-child(2) { margin: 0 40px 0 10px; }
+
+        
+        .container5 { flex-direction: column-reverse; justify-content: center; align-items: center; }
+
+   
+        .container6 { justify-content: space-between; align-items: flex-start; }
+        .container6 div { margin-top: 10px; }
+
+    
+        .container7 { flex-direction: column; align-items: center; justify-content: center; }
+        .container7 div:nth-child(1) { margin-bottom: 60px; }
+        .container7 div:nth-child(2) { margin-bottom: 20px; }
+
+      
+        .container8 { align-items: center; }
+        .container8 div:nth-child(2) {margin: 0 auto;}
+
+        .container9 { justify-content: center; align-items: center; gap: 20px; }
+        .container9 div:nth-child(1) { align-self: flex-start; margin-top: 90px; }
+        .container9 div:nth-child(3) { align-self: flex-end; margin-bottom: 90px;}
+
+      
+        .container10 div:nth-child(2) { margin: auto; }
+        .container10 div:nth-child(3) { align-self: flex-end; }
+    </style>
+</head>
+<body>
+    <div class="container1">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <div class="container2">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <br>
+    <div class="container3">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <div class="container4">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <div class="container5">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <div class="container6">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <div class="container7">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <div class="container8">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <div class="container9">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <div class="container10">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+</html>

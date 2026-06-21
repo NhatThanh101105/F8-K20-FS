@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+}
+    .heart {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    transform: rotate(-45deg);
+    animation: heartbeat 1.2s infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -50px;
+    left: 0;
+}
+
+.heart::after {
+    left: 50px;
+    top: 0;
+}
+
+.heart span {
+    position: absolute;
+    transform: rotate(45deg); 
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    z-index: 1;
+}
+
+@keyframes heartbeat {
+    0%   { transform: rotate(-45deg) scale(1); }
+    25%  { transform: rotate(-45deg) scale(1.1); }
+    50%  { transform: rotate(-45deg) scale(1); }
+    75%  { transform: rotate(-45deg) scale(1.2); }
+    100% { transform: rotate(-45deg) scale(1); }
+}
+    </style>
+</head>
+<body>
+    <div class="heart">
+        <span>Thanh</span>
+    </div>
+</body>
+</html>
