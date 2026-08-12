@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* CSS bổ sung cho hiệu ứng gạch ngang mượt mà */
+        .todo-item { transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen py-10 font-sans text-gray-800">
+    <div class="max-w-xl mx-auto bg-white p-6 rounded-xl shadow-md">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold">Todo List</h2>
+            <a href="index.html" class="text-sm text-blue-500 hover:underline">← Quay lại</a>
+        </div>
+        
+        <div class="flex gap-2 mb-2">
+            <input type="text" id="todo-input" placeholder="Thêm công việc mới..." class="flex-1 border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <button id="add-btn" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">Thêm</button>
+        </div>
+        <p id="error-msg" class="text-red-500 text-sm hidden mb-4">Vui lòng nhập nội dung todo!</p>
+
+        <div class="flex gap-2 mb-4 border-b pb-4" id="filters">
+            <button class="filter-btn active bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm" data-filter="all">Tất cả</button>
+            <button class="filter-btn text-gray-600 hover:bg-gray-100 px-3 py-1 rounded-full text-sm transition" data-filter="uncompleted">Chưa hoàn thành</button>
+            <button class="filter-btn text-gray-600 hover:bg-gray-100 px-3 py-1 rounded-full text-sm transition" data-filter="completed">Hoàn thành</button>
+        </div>
+
+        <ul id="todo-list" class="space-y-2 mb-4 min-h-[150px]"></ul>
+
+        <div class="flex justify-between items-center text-sm text-gray-500 pt-4 border-t border-gray-200">
+            <span id="todo-count">0/0 mục đã hoàn thành</span>
+            <button id="clear-completed" class="hidden text-red-500 hover:underline">Xoá tất cả hoàn thành</button>
+        </div>
+    </div>
+    <script src="todo.js"></script>
+</body>
+</html>

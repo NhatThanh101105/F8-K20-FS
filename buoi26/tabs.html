@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs Component</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen py-10">
+    <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+        <div class="p-4 bg-gray-50 flex justify-between">
+            <h2 class="text-xl font-bold">Chi tiết sản phẩm</h2>
+            <a href="index.html" class="text-sm text-blue-500 hover:underline">← Quay lại</a>
+        </div>
+        
+        <div id="tabs-container" tabindex="0" class="focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-300">
+            <div class="flex border-b border-gray-200" id="tab-buttons">
+                <button class="tab-btn active px-6 py-3 text-sm font-medium text-blue-600 border-b-2 border-blue-600 bg-blue-50" data-target="tab-desc">Mô tả</button>
+                <button class="tab-btn px-6 py-3 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:bg-gray-50 transition" data-target="tab-specs">Thông số</button>
+                <button class="tab-btn px-6 py-3 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:bg-gray-50 transition" data-target="tab-reviews">Đánh giá</button>
+                <button class="tab-btn px-6 py-3 text-sm font-medium text-gray-500 border-b-2 border-transparent hover:bg-gray-50 transition" data-target="tab-code">Mã nguồn mẫu</button>
+            </div>
+
+            <div class="p-6">
+                <div id="tab-desc" class="tab-content block">
+                    <h3 class="text-lg font-semibold mb-2">Mô tả sản phẩm</h3>
+                    <p class="text-gray-600 leading-relaxed">Đây là nội dung mô tả chi tiết. Thiết bị được trang bị công nghệ AI mới nhất giúp nhận diện khuôn mặt và chống Deepfake hiệu quả.</p>
+                </div>
+                <div id="tab-specs" class="tab-content hidden">
+                    <h3 class="text-lg font-semibold mb-2">Thông số kỹ thuật</h3>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>Màn hình: 6.7 inch OLED</li>
+                        <li>Vi xử lý: Octa-core 3.2GHz</li>
+                        <li>Bộ nhớ: 12GB RAM, 256GB ROM</li>
+                    </ul>
+                </div>
+                <div id="tab-reviews" class="tab-content hidden">
+                    <h3 class="text-lg font-semibold mb-2">Đánh giá khách hàng</h3>
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-yellow-400">★★★★★</span>
+                        <span class="text-sm text-gray-500">5.0 (120 đánh giá)</span>
+                    </div>
+                    <p class="text-gray-600">Sản phẩm tuyệt vời, rất đáng tiền!</p>
+                </div>
+                <div id="tab-code" class="tab-content hidden">
+                    <h3 class="text-lg font-semibold mb-2">Tích hợp API</h3>
+                    <pre class="bg-gray-900 text-green-400 p-4 rounded-lg text-sm overflow-x-auto">
+<code>fetch('/api/v1/detect', {
+    method: 'POST',
+    body: JSON.stringify({ image: 'base64...' })
+})
+.then(res => res.json())
+.then(data => console.log(data));</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="tabs.js"></script>
+</body>
+</html>
