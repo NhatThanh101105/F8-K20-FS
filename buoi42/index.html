@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hệ Thống Xử Lý Thanh Toán Đơn Hàng - TypeScript</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Header -->
+      <header class="app-header">
+        <div class="header-content">
+          <div class="badge-row">
+            <span class="tech-badge">TypeScript Strict</span>
+            <span class="tech-badge">OOP Polymorphism</span>
+            <span class="tech-badge">Custom Type Guard</span>
+            <span class="tech-badge">Generics</span>
+          </div>
+          <h1>Module Xử Lý Thanh Toán Đơn Hàng</h1>
+          <p class="subtitle">
+            Hệ thống mô phỏng thanh toán, xác thực dữ liệu qua type guard và tra cứu biên nhận với Generics
+          </p>
+        </div>
+      </header>
+
+      <!-- Quick Test Scenarios Bar (Hỗ trợ kiểm thử nhanh Phần 6) -->
+      <section class="test-scenarios-panel">
+        <div class="panel-header">
+          <span class="icon">⚡</span>
+          <strong>Kịch bản kiểm thử nhanh (Phần 6):</strong>
+          <span class="hint">Click để điền nhanh dữ liệu mẫu và chạy thử</span>
+        </div>
+        <div class="scenario-buttons">
+          <button type="button" class="btn-scenario" id="scenario-cod">
+            <span class="scenario-tag success">Hợp lệ</span> Đơn 1001, 250.000₫ (COD)
+          </button>
+          <button type="button" class="btn-scenario" id="scenario-bank">
+            <span class="scenario-tag success">Hợp lệ</span> Đơn 1002, 500.000₫ (BANK_TRANSFER)
+          </button>
+          <button type="button" class="btn-scenario" id="scenario-wallet">
+            <span class="scenario-tag success">Hợp lệ</span> Đơn 1003, 120.000₫ (E_WALLET)
+          </button>
+          <button type="button" class="btn-scenario" id="scenario-err-order">
+            <span class="scenario-tag danger">Lỗi</span> Mã âm (-10) / Không nguyên
+          </button>
+          <button type="button" class="btn-scenario" id="scenario-err-amount">
+            <span class="scenario-tag danger">Lỗi</span> Số tiền âm (-50.000₫)
+          </button>
+          <button type="button" class="btn-scenario" id="scenario-err-method">
+            <span class="scenario-tag danger">Lỗi</span> Phương thức không hợp lệ
+          </button>
+        </div>
+      </section>
+
+      <!-- Main Layout -->
+      <main class="main-grid">
+        <!-- Cột Trái: Form Thanh Toán & Kết Quả Xử Lý -->
+        <div class="column">
+          <!-- Form Thanh Toán -->
+          <div class="card form-card">
+            <div class="card-title-row">
+              <span class="card-icon">💳</span>
+              <h2>Thông Tin Thanh Toán</h2>
+            </div>
+
+            <form id="payment-form" novalidate>
+              <!-- Mã đơn hàng -->
+              <div class="form-group">
+                <label for="order-id">Mã đơn hàng <span class="required">*</span></label>
+                <div class="input-wrapper">
+                  <input
+                    type="text"
+                    id="order-id"
+                    name="orderId"
+                    placeholder="Ví dụ: 1001"
+                    autocomplete="off"
+                  />
+                </div>
+                <small class="field-hint">Phải là số nguyên dương lớn hơn 0</small>
+              </div>
+
+              <!-- Số tiền -->
+              <div class="form-group">
+                <label for="amount">Số tiền thanh toán (VNĐ) <span class="required">*</span></label>
+                <div class="input-wrapper">
+                  <input
+                    type="text"
+                    id="amount"
+                    name="amount"
+                    placeholder="Ví dụ: 250000"
+                    autocomplete="off"
+                  />
+                </div>
+                <small class="field-hint">Số hữu hạn lớn hơn 0</small>
+              </div>
+
+              <!-- Phương thức thanh toán -->
+              <div class="form-group">
+                <label for="payment-method">Phương thức thanh toán <span class="required">*</span></label>
+                <div class="select-wrapper">
+                  <select id="payment-method" name="method">
+                    <option value="COD">Thanh toán khi nhận hàng (COD)</option>
+                    <option value="BANK_TRANSFER">Chuyển khoản ngân hàng (BANK_TRANSFER)</option>
+                    <option value="E_WALLET">Ví điện tử (E_WALLET)</option>
+                    <option value="CRYPTO_UNKNOWN" class="hidden-test-option">
+                      [Test lỗi Type Guard] Tiền điện tử (Không hợp lệ)
+                    </option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" id="btn-submit-payment" class="btn btn-primary">
+                  <span>Xử lý Thanh Toán</span>
+                  <span class="btn-arrow">→</span>
+                </button>
+                <button type="button" id="btn-reset-form" class="btn btn-secondary">
+                  Làm mới
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Thông báo Lỗi xác thực Type Guard -->
+          <div id="validation-error-box" class="alert alert-error" style="display: none;">
+            <div class="alert-header">
+              <span class="alert-icon">⚠️</span>
+              <strong>Xác thực thất bại (Type Guard isPaymentRequest từ chối)</strong>
+            </div>
+            <ul id="validation-error-list" class="alert-list"></ul>
+          </div>
+
+          <!-- Kết Quả Thanh Toán Vừa Thực Hiện -->
+          <div id="payment-result-box" style="display: none;"></div>
+        </div>
+
+        <!-- Cột Phải: Tra Cứu Generic findById & Danh Sách Biên Nhận -->
+        <div class="column">
+          <!-- Hộp Tìm kiếm Generic findById -->
+          <div class="card search-card">
+            <div class="card-title-row">
+              <span class="card-icon">🔍</span>
+              <h2>Tìm Biên Nhận (Generic findById)</h2>
+            </div>
+            <p class="search-desc">
+              Sử dụng hàm generic <code>findById&lt;T extends &#123; id: number &#125;&gt;(items: T[], id: number)</code> để tra cứu biên nhận.
+            </p>
+
+            <form id="search-receipt-form" class="search-form" onsubmit="return false;">
+              <div class="search-input-group">
+                <input
+                  type="text"
+                  id="search-receipt-id"
+                  placeholder="Nhập mã biên nhận ID (ví dụ: 1001, 1002...)"
+                  autocomplete="off"
+                />
+                <button type="button" id="btn-search-receipt" class="btn btn-search">
+                  Tìm biên nhận
+                </button>
+              </div>
+            </form>
+
+            <!-- Kết quả tìm kiếm -->
+            <div id="search-result-box" style="display: none;"></div>
+          </div>
+
+          <!-- Danh Sách Tất Cả Biên Nhận -->
+          <div class="card receipts-card">
+            <div class="card-title-row space-between">
+              <div class="title-with-badge">
+                <span class="card-icon">🧾</span>
+                <h2>Danh Sách Biên Nhận</h2>
+              </div>
+              <span id="receipt-count-badge" class="count-badge">0 biên nhận</span>
+            </div>
+
+            <div id="receipts-list-container">
+              <!-- Danh sách rỗng mặc định -->
+              <div id="empty-receipts-state" class="empty-state">
+                <div class="empty-icon">📭</div>
+                <p class="empty-text">Chưa có biên nhận nào được tạo trong phiên này.</p>
+                <p class="empty-subtext">Hãy hoàn tất một giao dịch thanh toán để tạo biên nhận đầu tiên!</p>
+              </div>
+
+              <!-- Danh sách các biên nhận sẽ được render tại đây -->
+              <div id="receipts-list" class="receipts-grid"></div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="app-footer">
+        <p>Ứng dụng TypeScript — Xây Dựng Module Xử Lý Thanh Toán Đơn Hàng (F8 Buổi 42)</p>
+      </footer>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
