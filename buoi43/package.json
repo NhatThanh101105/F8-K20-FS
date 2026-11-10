@@ -1,0 +1,21 @@
+{
+  "name": "product-management-ts",
+  "version": "1.0.0",
+  "description": "Module quan ly danh muc san pham bang TypeScript",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "tsx src/main.ts",
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": ["typescript", "product-management", "node"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
+
